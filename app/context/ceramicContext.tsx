@@ -20,13 +20,10 @@ import { ScorerContext } from "./scorerContext";
 
 import { PlatformGroupSpec, platforms as stampPlatforms } from "@gitcoin/passport-platforms";
 const {
-  Twitter,
   Ens,
   Lens,
   Github,
   Gitcoin,
-  Poh,
-  PHI,
   NFT,
   GnosisSafe,
   Snapshot,
@@ -43,7 +40,6 @@ const {
   Holonym,
   Idena,
   Civic,
-  CyberConnect,
   TrustaLabs,
 } = stampPlatforms;
 import { PlatformProps } from "../components/GenericPlatform";
@@ -79,11 +75,6 @@ export interface CeramicContextState {
 
 export const platforms = new Map<PLATFORM_ID, PlatformProps>();
 
-platforms.set("Twitter", {
-  platform: new Twitter.TwitterPlatform(),
-  platFormGroupSpec: Twitter.ProviderConfig,
-});
-
 platforms.set("Ens", {
   platform: new Ens.EnsPlatform(),
   platFormGroupSpec: Ens.ProviderConfig,
@@ -113,11 +104,6 @@ platforms.set("Gitcoin", {
 platforms.set("Snapshot", {
   platform: new Snapshot.SnapshotPlatform(),
   platFormGroupSpec: Snapshot.ProviderConfig,
-});
-
-platforms.set("Poh", {
-  platform: new Poh.PohPlatform(),
-  platFormGroupSpec: Poh.ProviderConfig,
 });
 
 platforms.set("ZkSync", {
@@ -193,13 +179,6 @@ if (process.env.NEXT_PUBLIC_FF_GUILD_STAMP === "on") {
   });
 }
 
-if (process.env.NEXT_PUBLIC_FF_PHI_STAMP === "on") {
-  platforms.set("PHI", {
-    platform: new PHI.PHIPlatform(),
-    platFormGroupSpec: PHI.ProviderConfig,
-  });
-}
-
 if (process.env.NEXT_PUBLIC_FF_HOLONYM_STAMP === "on") {
   platforms.set("Holonym", {
     platform: new Holonym.HolonymPlatform(),
@@ -220,13 +199,6 @@ platforms.set("Civic", {
   }),
   platFormGroupSpec: Civic.ProviderConfig,
 });
-
-if (process.env.NEXT_PUBLIC_FF_CYBERCONNECT_STAMPS === "on") {
-  platforms.set("CyberConnect", {
-    platform: new CyberConnect.CyberConnectPlatform(),
-    platFormGroupSpec: CyberConnect.ProviderConfig,
-  });
-}
 
 if (process.env.NEXT_PUBLIC_FF_TRUSTALABS_STAMPS === "on") {
   platforms.set("TrustaLabs", {
